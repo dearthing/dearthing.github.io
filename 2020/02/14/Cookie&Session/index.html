@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>Cookie&amp;Session | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="今日内容1. 会话技术     1. Cookie     2. Session 2. JSP : 入门学习会话技术1.  会话 : 一次会话中包含多次请求和响应.     * 一次会话 : 浏览器第一次给服务器资源发送请求,会话建立,直到有一方断开为止 2. 功能 : 在一次会话的范围内的多次请求之间,共享数据 3. 方式 :      1. 客户端会话技术 : Cookie     2. 服务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie&amp;Session">
+<meta property="og:url" content="http://yoursite.com/2020/02/14/Cookie&Session/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今日内容1. 会话技术     1. Cookie     2. Session 2. JSP : 入门学习会话技术1.  会话 : 一次会话中包含多次请求和响应.     * 一次会话 : 浏览器第一次给服务器资源发送请求,会话建立,直到有一方断开为止 2. 功能 : 在一次会话的范围内的多次请求之间,共享数据 3. 方式 :      1. 客户端会话技术 : Cookie     2. 服务">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-14T12:10:17.934Z">
+<meta property="article:modified_time" content="2020-02-13T10:34:32.593Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">John Doe</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">玩转开发工具</a></li>
+                        
+                            <li><a  href="/categories/digital">玩转数码</a></li>
+                        
+                            <li><a  href="/categories/algorithm">算法学习</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="/dearthing" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="/Dearth" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱游戏,爱女人,爱编程,爱运动,爱的太多了!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">John Doe</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">John Doe</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">玩转开发工具</a></li>
+                
+                    <li><a href="/categories/digital">玩转数码</a></li>
+                
+                    <li><a href="/categories/algorithm">算法学习</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="/dearthing" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="/Dearth" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Cookie&amp;Session" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/14/Cookie&Session/" class="article-date">
+      <time datetime="2020-02-14T12:10:17.934Z" itemprop="datePublished">2020-02-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Cookie&amp;Session
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h1><pre><code>1. 会话技术
+    1. Cookie
+    2. Session
+2. JSP : 入门学习</code></pre><h2 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h2><pre><code>1.  会话 : 一次会话中包含多次请求和响应.
+    * 一次会话 : 浏览器第一次给服务器资源发送请求,会话建立,直到有一方断开为止
+2. 功能 : 在一次会话的范围内的多次请求之间,共享数据
+3. 方式 : 
+    1. 客户端会话技术 : Cookie
+    2. 服务器端会话技术 : Session</code></pre><h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><pre><code>1. 概念 : 客户端会话技术 ,将数据保存到客户端
+2. 快速入门
+    * 使用步骤
+        1.  创建Cookie对象,绑定数据
+            * new Cookie(String name , String value )
+        2.  发送Cookie对象
+            * response .addCookie(Cookie cookie)
+        3.  获取Cookie,拿到数据
+            * Cookie[] request.getCookie
+3. 实现原理:
+    * 基于响应头set-cookie和请求头Cookie实现 
+
+4. Cookie的细节
+    1.  一次可不可发送多个cookie?
+        * 可以
+        * 可以创建多个Cookie对象,使用response调用多次addCookie方法发送cookie即可
+    2.  cookie在浏览器中保存多长时间?
+        * 默认情况下,当浏览器关闭后,Cookie数据被销毁
+        * 设置Cookie的生命周期 持久化存储 : setMaxAge(int seconds) :
+                                                1. 正数 : 将Cookie数据写到硬盘中,cookie存活时间 
+                                                2. 负数 : 默认值
+                                                3. 零 : 删除cookie信息
+    3.  cookie能不能存中文?
+        * 在tomcat8之前是不能存中文数据的
+            * 需要将中文数据转码--一般采用URL编码(%E3)
+        * 在tomcat8之后是可以存储中文数据的(特殊字符还是不支持,建议使用URL编码)
+    4.  cookie获取范围有多大?
+        1. 假设在一个tomcat服务器中,部署了多个web项目,那么在这些web项目中Cookie能不能共享?
+            * 默认情况下cookie不能共享
+
+            * setPath(String path) : 设置cookie的获取范围.默认情况下,设置当前的虚拟目录
+                * 如果要共享,则可以将path设置为&quot;/&quot;
+
+        2. 不同的tomcat可以共享cookie吗?
+            * setDomain(String path): 如果设置一级域名相同,那么多个服务器之间cookie可以共享
+                * setDomain(&quot;.baidu.com&quot;), 那么tieba.baidu.com 和 news.baidu.com中的cookie可以共享
+
+    5. Cookie的特点
+        1. cookie存储数据在客户端浏览器
+        2. 浏览器对于单个cookie的大小有限制(4kb) 以及对同一域名下的总cookie数量也有限制(20个)
+
+        * 作用 :
+            1. cookie一般用于存储少量的不敏感的数据
+            2. 在不登录的情况下,完成服务器对客户端的身份识别
+
+    6. 案例 : 
+        1. 案例需求：
+            1. 访问一个Servlet，如果是第一次访问，则提示：您好，欢迎您首次访问。
+            2. 如果不是第一次访问，则提示：欢迎回来，您上次访问时间为:显示时间字符串
+        2. 分析: 
+            1. 可以采用Cookie来完成
+            2. 在服务器中的Servlet判断是否有一个名为lastTime的Cookie
+                1. 有 : 则不是第一次访问
+                     1. 响应数据 : 欢迎回来,您上次访问时间为: 2020年2月12日
+                    2. 写回Cookie : LastTime=2020年2月12日12.24
+                2. 没有 : 是第一次访问
+                    1. 响应数据 : 您好,欢迎首次访问
+                    2. 写回Cookie : LastTime=2020年2月12日12.24</code></pre><h2 id="JSP-入门学习"><a href="#JSP-入门学习" class="headerlink" title="JSP 入门学习"></a>JSP 入门学习</h2><pre><code>1. 概念 : 
+    * Java Server Pages : java 服务器端页面
+        * 可以理解为 : 一个特殊的页面 
+        * 用于简化书写!!!
+
+2. 原理
+    * JSP本质上就是一个Servlet
+
+2. JSP脚本 : JSP定义了Java代码的方式
+    1.  &lt;% 代码 %&gt; : 定义Java代码,在service方法中,service发给发可以定义什么,就脚本中就可以定义
+    2.  &lt;%! 代码 %&gt; : 定义的java代码,在jsp转换后的java类成员位置
+    3.  &lt;%= 代码 %&gt; : 定义的java代码,会输出到页面上.输出语句可以定义什么,则可以输出什么
+
+4. JSP的内置对象
+    * 在jsp页面中不许哟啊获取和创建,可以直接使用的对象
+    * jsp一共有9个内置对象
+        * request
+        * response
+        * out : 字符输出流对象.可以将数据输出到页面上.和response.getWriter()类似
+            * response.getWriter()和out.write()的区别
+                * 在tomcat服务器真正给客户端做出响应之前,会先找response缓冲区数据,在去找out缓冲区数据</code></pre><h2 id="Session"><a href="#Session" class="headerlink" title="Session :"></a>Session :</h2><pre><code>1. 概念 : 服务器端会话技术,在一次或者多次请求间共享数据,将数据保存在服务器端的对象中,HttpSession
+2. 快速入门
+    1.  获取Session对象
+        * HttpSession session request.getSession();
+    2.  使用HttpSession对象(同一个Session) :
+         * Object getAttribute(String name)
+         * void setAttribute(String name , object value )
+         * void removeAttribute(String name) 
+
+    3. 原理
+        * Session的实现是依赖Cookie的
+
+    4. 细节 :
+        1.  当客户端关闭后,服务器不关闭,两次获取session是否为同一个?
+            *  默认情况下,不是
+            *  @7fc6e954 @28ffc216
+            *  如果想这样的话可以创建一个cookie对象然后设置JSESSIONID 并设置失效时间就可以访问同一个session了
+            *  @253218d5 @253218d5
+            *  //期望客户端关闭后,Session也能相同
+                Cookie c = new Cookie(&quot;JSESSIONID&quot;, session.getId());
+                c.setMaxAge(60);
+                response.addCookie(c);
+        2.  客户端不关闭,服务器关闭后,两次获取的session是同一个吗?
+            * 不是同一个,但是要确保数据不丢失(Tomcat会有个work目录里面记录了创建的对象如果将服务端关闭,里面的内容依然保存,再次启动则读取原先的对象)
+                * session的钝化 :
+                    * 在服务器正常关闭之前,将session对象序列化到硬盘上
+                * session的活化 :
+                    * 在服务器启动后,将session文件转化为内存中的session对象即可.(反序列化)
+        3.  session的失效时间?
+            1.   服务器关闭
+            2.   session调用方法 invalidate()
+            3.   session默认的失效时间 30分钟
+                选择性的配置修改
+                &lt;session-confing&gt;
+
+    5. session的特点
+        1.  session用于存储一次会话的多次请求的数据,存在服务器端
+        2.  session可以存储任意类型,任意大小的数据
+
+        * session与cookie的区别
+            1. session存储数据在服务端,Cookie在客户端
+            2. session没有数据大小限制,Cookie有
+            3. session数据安全,Cookie相对不安全</code></pre><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><pre><code>案例需求：
+1. 访问带有验证码的登录页面login.jsp
+2. 用户输入用户名，密码以及验证码。
+    * 如果用户名和密码输入有误，跳转登录页面，提示:用户名或密码错误
+    * 如果验证码输入有误，跳转登录页面，提示：验证码错误
+    * 如果全部输入正确，则跳转到主页success.jsp，显示：用户名,欢迎您</code></pre><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><pre><code>1.导包问题 :在WEB-INF包下的libs目录下导入的common-BeanUtils 的j包 导入不了</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2020/02/14/Cookie&Session/">Cookie&amp;Session</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 John Doe 的个人博客">John Doe</a></p>
+        <p><span>发布时间:</span>2020年02月14日 - 20时10分</p>
+        <p><span>最后更新:</span>2020年02月13日 - 18时34分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/02/14/Cookie&Session/" title="Cookie&amp;Session">http://yoursite.com/2020/02/14/Cookie&amp;Session/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/02/14/Cookie&amp;Session/　　作者: John Doe" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2020/02/14/EL&JSTL/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          EL&amp;JSTL
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2020/02/14/UserTable/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">UserTable</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#今日内容"><span class="toc-number">1.</span> <span class="toc-text">今日内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#会话技术"><span class="toc-number">1.1.</span> <span class="toc-text">会话技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie"><span class="toc-number">1.2.</span> <span class="toc-text">Cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSP-入门学习"><span class="toc-number">1.3.</span> <span class="toc-text">JSP 入门学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Session"><span class="toc-number">1.4.</span> <span class="toc-text">Session :</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#案例"><span class="toc-number">1.5.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.6.</span> <span class="toc-text">问题</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2020/02/14/EL&JSTL/" title="上一篇: EL&amp;JSTL">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2020/02/14/UserTable/" title="下一篇: UserTable">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/Servlet&HTTP&Request/">Servlet&HTTP&Request</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/Response/">Response</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/EL&JSTL/">EL&JSTL</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/Cookie&Session/">Cookie&Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/UserTable/">UserTable</a></li></ul>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 John Doe
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

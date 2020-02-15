@@ -7,17 +7,17 @@
   
   
   
-  <title>Hello World | Hexo</title>
+  <title>Response | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="今日内容1. HTTP协议 : 响应消息 2. Response对象 3. ServetContext对象HTTP协议 :1. 请求消息 : 客户端发送给服务器的数据     * 数据格式 :         1. 请求行          2. 请求头         3. 请求空行         4. 请求体 2. 响应消息 :          1. 响应行             1.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2020/02/14/hello-world/index.html">
+<meta property="og:title" content="Response">
+<meta property="og:url" content="http://yoursite.com/2020/02/14/Response/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="今日内容1. HTTP协议 : 响应消息 2. Response对象 3. ServetContext对象HTTP协议 :1. 请求消息 : 客户端发送给服务器的数据     * 数据格式 :         1. 请求行          2. 请求头         3. 请求空行         4. 请求体 2. 响应消息 :          1. 响应行             1.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-14T03:01:20.973Z">
-<meta property="article:modified_time" content="2020-02-14T03:01:20.973Z">
+<meta property="article:published_time" content="2020-02-14T12:10:17.938Z">
+<meta property="article:modified_time" content="2020-02-11T09:37:34.335Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -276,11 +276,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Response" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2020/02/14/hello-world/" class="article-date">
-      <time datetime="2020-02-14T03:01:20.973Z" itemprop="datePublished">2020-02-14</time>
+      <a  href="/2020/02/14/Response/" class="article-date">
+      <time datetime="2020-02-14T12:10:17.938Z" itemprop="datePublished">2020-02-14</time>
 </a>
 
     </div>
@@ -294,7 +294,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Response
     </h1>
   
 
@@ -312,20 +312,155 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h2 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h2><pre><code>1. HTTP协议 : 响应消息
+2. Response对象
+3. ServetContext对象</code></pre><h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议 :"></a>HTTP协议 :</h2><pre><code>1. 请求消息 : 客户端发送给服务器的数据
+    * 数据格式 :
+        1. 请求行 
+        2. 请求头
+        3. 请求空行
+        4. 请求体
+2. 响应消息 : 
+        1. 响应行
+            1. 组成 : 协议/版本 响应的状态码 状态码的描述
+            2. 响应状态码  : 服务器告诉客户端浏览器本次请求和响应的一个状态
+                1.  状态码都是3位数字
+                2.  分类 :
+                    1.  1xx : 服务器接收客户端消息,但没有接受完成,等待一段时间后,发送1xx多状态码
+                    2.  2xx : 成功 代表 200
+                    3.  3xx : 重定向 : 302(重定向相当于getResquestDispatcher) , 304(缓存)浏览器把图片缓冲到本地
+                    4.  4xx : 客户端错误 
+                            * 代表
+                                * 404(请求路径没有对应的资源)
+                                * 405(请求方式没有对应的doXxx方法)
+                    5.  5xx : 服务器端错误
+                            *  代表 : 
+                                *   500(服务器内部出现异常)
+        2. 响应头 :
+            1. 格式 : 头名称  : 值
+            2. 常见的响应头 :
+                * Content-Type : 服务器告诉客户端本次响应体数据格式以及编码格式 
+                * Content-disposition : 服务器告诉客户端以什么格式打开响应体数据
+                        * 值 :
+                            * in-line : 默认值,在当前页面内打开
+                            * attachment filename=xxx: 以附件形式打开响应体  文件下载
+        3. 响应空行
+        4. 响应体 传输的数据</code></pre><h2 id="Response-对象"><a href="#Response-对象" class="headerlink" title="Response 对象"></a>Response 对象</h2><pre><code>*功能 : 设置响应消息
+    1. 设置响应行
+        1. 格式 : HTTP/1.1 200 ok
+        2. 设置状态码 : setStatus(int sc)&apos;
+    2. 设置响应头 : setHeader(String name, String value)
+    3. 设置响应体 : 
+        * 使用步骤
+            1. 获取输出流
+                * 字符输出流 : PrintWriter getWriter() 
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+                * 字节输出流 : ServletOutputStream getOutputStream()  
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+            2. 使用输出流,将数据输出到客户端浏览器
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
+*案例 :
+    1. 完成重定向
+        *  //设置响应状态码      
+           response.setStatus(302);
+           //设置重定向
+           response.setHeader(&quot;Location&quot;,&quot;/day29/responseDemo02&quot;);
+           //简单的重定向方法
+           response.sendRedirect(&quot;/day29/responseDemo02&quot;);
+        * 重定向特点:
+            1. 地址栏发生变化
+            2. 重定向可以访问其他站点(服务器)的资源
+            3. 重定向是两次请求,不能使用request来共享数据
+        * 转发的特点:
+            1. 转发地址栏不变
+            2. 转发只能访问当前服务器下的资源
+            3. 转发只是一次请求,可以使用request对象来共享数据
+        * forward(转发) 和 redirect(重定向) 的区别 就是以上的内容
+
+        * 路径写法
+            1. 路径的分类
+                1. 相对路径 : 通过相对路径不可以确定唯一资源
+                     * 如 : ./ index.html
+                     * 不以/开头,以.开头路径
+
+                    * 规则 : 找到当前资源和目标资源之间的相对位置关系
+                        *  ./ : 当前目录
+                        *  ../ : 后退一级目录
+                2. 绝对路径 : 通过绝对路径可以确定唯一路径
+                     * 如: http://localhost/day29/responseDemo02
+                     * 以/开头的路径
+
+                    * 规则 : 判定定义的路径是给谁用的?判断请求将从哪里来
+                        * 给客户端浏览器用的 : 需要加虚拟目录(项目的访问的路径) 例如 : forward 就是不需要加虚拟路径
+                            * 建议虚拟目录动态获取 :String  request.getContextPath()
+                        * 给服务器端用的 : 不需要加虚拟目录 例如 : redirect 就是需要加虚拟路径的
+    2. 服务器输出字符数据到浏览器
+        * 步骤
+            1. 获取字符输出流
+            2. 输出数据
+        * 注意
+            * 乱码问题
+                1. PrintWriter writer = response.getWriter();获取字节输入流对象其默认编码为ISO-8859-1(tomcat默认编码)
+                2. 解决方案 : 再获取流对象之前设置告诉浏览器其编码为(UTF-8)
+                    * response.setContentType(&quot;text/html,char=utf-8&quot;)
+    3. 服务器输出字节数据到浏览器
+        * 步骤
+        * 设置该流的默认编码
+            1. 获取字节输出流
+            2. 输出数据
+    4. 验证码
+        1. 本质 : 图片
+        2. 防止重复注册,导致数据库崩溃
+        3. 动态生成(如果是有限的图片,可以通过穷举的方法全部读取)</code></pre><h2 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h2><pre><code>1. 概念 : 代表整个web应用,可以和程序的容器(服务器)来通信
+2. 获取
+    1. 通过request对象来获取
+            * request.getServletContext
+    2. 通过HttpServlet获取
+            * this.getServletContext
+3. 功能 : 
+    1. 获取MIME类型 :
+        * MIME类型:在互联网通信过程中定义的一种文件数据类型
+            * 格式 : 大类型/小类型 text/html   image/jpeg
+        * 获取 : String getMineType(String file)
+    2. 域对象 : 共享数据
+        1. setAttribute(String name ,Object value)
+        2. getAttribute(String name)
+        3. removeAttribute(String name)
+
+        * ServletContext 对象范围 : 所有用户所有请求的数据
+    3. 获取文件的真实路径(服务器路径) :  
+        1. 方法 : String getRealPath(String path)
+
+          //获取配置文件的真实路径
+            String realPath1 = context.getRealPath(&quot;/WEB-INF/a.txt&quot;);//WEB-INF目录下的配置文件
+            String realPath2 = context.getRealPath(&quot;/WEB-INF/classes/b.txt&quot;);//src目录下的配置文件
+            String realPath = context.getRealPath(&quot;/c.txt&quot;);//web目录下的配置文件</code></pre><h2 id="案例"><a href="#案例" class="headerlink" title="案例 :"></a>案例 :</h2><pre><code>*文件下载需求 :
+    1. 页面显示超链接
+    2. 点击超链接后弹出下载提示框
+    3. 完成图片文件下载
+
+
+* 分析 :
+    1. 超链接指向的资源如果能被解析,则不能实现需求
+    2. 任何资源都必须弹出下载提示框
+    3. 使用响应头设置资源的打开方式:
+        *content-disposition : attachment ; filename=xxx*
+
+* 步骤 :
+    1. 定义页面编辑超链接属性,指向Servlet
+    2. 定义Servlet
+        1.  获取文件名称
+        2.  使用字节输入流加载文件进内存
+        3.  指定response的响应头 : content-disposition : attachment ; filename=xxx
+        4.  将数据写出到response输出流
+
+* 问题
+    1. 中文文件问题
+        *解决思路
+            1. 获取客户端使用的浏览器版本信息
+            2. 根据不同的版本信息,设置filename的编码方式不同</code></pre>
       
     </div>
     
@@ -333,13 +468,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2020/02/14/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a  href="/2020/02/14/Response/">Response</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 John Doe 的个人博客">John Doe</a></p>
-        <p><span>发布时间:</span>2020年02月14日 - 11时01分</p>
-        <p><span>最后更新:</span>2020年02月14日 - 11时01分</p>
+        <p><span>发布时间:</span>2020年02月14日 - 20时10分</p>
+        <p><span>最后更新:</span>2020年02月11日 - 17时37分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/02/14/hello-world/" title="Hello World">http://yoursite.com/2020/02/14/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/02/14/hello-world/　　作者: John Doe" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/02/14/Response/" title="Response">http://yoursite.com/2020/02/14/Response/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/02/14/Response/　　作者: John Doe" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -350,15 +485,20 @@
 
 <nav id="article-nav">
   
-    <a  href="/2020/02/14/my-first-blog/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2020/02/14/Servlet&HTTP&Request/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          my first blog
+          Servlet&amp;HTTP&amp;Request
         
       </div>
     </a>
   
+  
+    <a  href="/2020/02/14/EL&JSTL/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">EL&amp;JSTL</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -368,7 +508,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#今日内容"><span class="toc-number">1.</span> <span class="toc-text">今日内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP协议"><span class="toc-number">2.</span> <span class="toc-text">HTTP协议 :</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Response-对象"><span class="toc-number">3.</span> <span class="toc-text">Response 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ServletContext对象"><span class="toc-number">4.</span> <span class="toc-text">ServletContext对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#案例"><span class="toc-number">5.</span> <span class="toc-text">案例 :</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -429,16 +569,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2020/02/14/my-first-blog/" title="上一篇: my first blog">
+            <a  href="/2020/02/14/Servlet&HTTP&Request/" title="上一篇: Servlet&amp;HTTP&amp;Request">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a  href="/2020/02/14/EL&JSTL/" title="下一篇: EL&amp;JSTL">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/my-first-blog/">my first blog</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/Servlet&HTTP&Request/">Servlet&HTTP&Request</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/Response/">Response</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/EL&JSTL/">EL&JSTL</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/Cookie&Session/">Cookie&Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/UserTable/">UserTable</a></li></ul>
     
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 

@@ -7,13 +7,17 @@
   
   
   
-  <title>Hexo</title>
+  <title>Servlet&amp;HTTP&amp;Request | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="今日内容1. Servlet 2. HTTP协议 3. RequestServlet1. 概念 2. 步骤 3. 执行原理 4. 生命周期 5. Servlet3.0 注解配置 6. Servlet的体系结构     Servlet --接口         |     GenericServlet --抽象类         |     HttpServlet --抽象类      * Gene">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Servlet&amp;HTTP&amp;Request">
+<meta property="og:url" content="http://yoursite.com/2020/02/14/Servlet&HTTP&Request/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今日内容1. Servlet 2. HTTP协议 3. RequestServlet1. 概念 2. 步骤 3. 执行原理 4. 生命周期 5. Servlet3.0 注解配置 6. Servlet的体系结构     Servlet --接口         |     GenericServlet --抽象类         |     HttpServlet --抽象类      * Gene">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-14T12:10:17.939Z">
+<meta property="article:modified_time" content="2020-02-08T08:36:37.068Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -33,9 +37,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -46,8 +47,8 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -275,9 +276,7 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-Servlet&amp;HTTP&amp;Request" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Servlet&amp;HTTP&amp;Request" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a  href="/2020/02/14/Servlet&HTTP&Request/" class="article-date">
@@ -294,13 +293,20 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/Servlet&HTTP&Request/">Servlet&amp;HTTP&amp;Request</a>
+    <h1 class="article-title" itemprop="name">
+      Servlet&amp;HTTP&amp;Request
     </h1>
   
 
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -748,732 +754,141 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2020/02/14/Servlet&HTTP&Request/">Servlet&amp;HTTP&amp;Request</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 John Doe 的个人博客">John Doe</a></p>
+        <p><span>发布时间:</span>2020年02月14日 - 20时10分</p>
+        <p><span>最后更新:</span>2020年02月08日 - 16时36分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/02/14/Servlet&HTTP&Request/" title="Servlet&amp;HTTP&amp;Request">http://yoursite.com/2020/02/14/Servlet&amp;HTTP&amp;Request/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/02/14/Servlet&amp;HTTP&amp;Request/　　作者: John Doe" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2020/02/14/Response/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Response</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#今日内容"><span class="toc-number">1.</span> <span class="toc-text">今日内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet"><span class="toc-number">1.1.</span> <span class="toc-text">Servlet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP"><span class="toc-number">1.2.</span> <span class="toc-text">HTTP :</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Request"><span class="toc-number">1.3.</span> <span class="toc-text">Request :</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#案例-用户登录"><span class="toc-number">1.4.</span> <span class="toc-text">案例 : 用户登录</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
 
 
 
 
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
 
 
-
-
-  
-    <article id="post-Response" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/Response/" class="article-date">
-      <time datetime="2020-02-14T12:10:17.938Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+
+
+
+    <div class="scroll" id="post-nav-button">
         
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/Response/">Response</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h2><pre><code>1. HTTP协议 : 响应消息
-2. Response对象
-3. ServetContext对象</code></pre><h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议 :"></a>HTTP协议 :</h2><pre><code>1. 请求消息 : 客户端发送给服务器的数据
-    * 数据格式 :
-        1. 请求行 
-        2. 请求头
-        3. 请求空行
-        4. 请求体
-2. 响应消息 : 
-        1. 响应行
-            1. 组成 : 协议/版本 响应的状态码 状态码的描述
-            2. 响应状态码  : 服务器告诉客户端浏览器本次请求和响应的一个状态
-                1.  状态码都是3位数字
-                2.  分类 :
-                    1.  1xx : 服务器接收客户端消息,但没有接受完成,等待一段时间后,发送1xx多状态码
-                    2.  2xx : 成功 代表 200
-                    3.  3xx : 重定向 : 302(重定向相当于getResquestDispatcher) , 304(缓存)浏览器把图片缓冲到本地
-                    4.  4xx : 客户端错误 
-                            * 代表
-                                * 404(请求路径没有对应的资源)
-                                * 405(请求方式没有对应的doXxx方法)
-                    5.  5xx : 服务器端错误
-                            *  代表 : 
-                                *   500(服务器内部出现异常)
-        2. 响应头 :
-            1. 格式 : 头名称  : 值
-            2. 常见的响应头 :
-                * Content-Type : 服务器告诉客户端本次响应体数据格式以及编码格式 
-                * Content-disposition : 服务器告诉客户端以什么格式打开响应体数据
-                        * 值 :
-                            * in-line : 默认值,在当前页面内打开
-                            * attachment filename=xxx: 以附件形式打开响应体  文件下载
-        3. 响应空行
-        4. 响应体 传输的数据</code></pre><h2 id="Response-对象"><a href="#Response-对象" class="headerlink" title="Response 对象"></a>Response 对象</h2><pre><code>*功能 : 设置响应消息
-    1. 设置响应行
-        1. 格式 : HTTP/1.1 200 ok
-        2. 设置状态码 : setStatus(int sc)&apos;
-    2. 设置响应头 : setHeader(String name, String value)
-    3. 设置响应体 : 
-        * 使用步骤
-            1. 获取输出流
-                * 字符输出流 : PrintWriter getWriter() 
-
-                * 字节输出流 : ServletOutputStream getOutputStream()  
-
-            2. 使用输出流,将数据输出到客户端浏览器
-
-
-
-*案例 :
-    1. 完成重定向
-        *  //设置响应状态码      
-           response.setStatus(302);
-           //设置重定向
-           response.setHeader(&quot;Location&quot;,&quot;/day29/responseDemo02&quot;);
-           //简单的重定向方法
-           response.sendRedirect(&quot;/day29/responseDemo02&quot;);
-        * 重定向特点:
-            1. 地址栏发生变化
-            2. 重定向可以访问其他站点(服务器)的资源
-            3. 重定向是两次请求,不能使用request来共享数据
-        * 转发的特点:
-            1. 转发地址栏不变
-            2. 转发只能访问当前服务器下的资源
-            3. 转发只是一次请求,可以使用request对象来共享数据
-        * forward(转发) 和 redirect(重定向) 的区别 就是以上的内容
-
-        * 路径写法
-            1. 路径的分类
-                1. 相对路径 : 通过相对路径不可以确定唯一资源
-                     * 如 : ./ index.html
-                     * 不以/开头,以.开头路径
-
-                    * 规则 : 找到当前资源和目标资源之间的相对位置关系
-                        *  ./ : 当前目录
-                        *  ../ : 后退一级目录
-                2. 绝对路径 : 通过绝对路径可以确定唯一路径
-                     * 如: http://localhost/day29/responseDemo02
-                     * 以/开头的路径
-
-                    * 规则 : 判定定义的路径是给谁用的?判断请求将从哪里来
-                        * 给客户端浏览器用的 : 需要加虚拟目录(项目的访问的路径) 例如 : forward 就是不需要加虚拟路径
-                            * 建议虚拟目录动态获取 :String  request.getContextPath()
-                        * 给服务器端用的 : 不需要加虚拟目录 例如 : redirect 就是需要加虚拟路径的
-    2. 服务器输出字符数据到浏览器
-        * 步骤
-            1. 获取字符输出流
-            2. 输出数据
-        * 注意
-            * 乱码问题
-                1. PrintWriter writer = response.getWriter();获取字节输入流对象其默认编码为ISO-8859-1(tomcat默认编码)
-                2. 解决方案 : 再获取流对象之前设置告诉浏览器其编码为(UTF-8)
-                    * response.setContentType(&quot;text/html,char=utf-8&quot;)
-    3. 服务器输出字节数据到浏览器
-        * 步骤
-        * 设置该流的默认编码
-            1. 获取字节输出流
-            2. 输出数据
-    4. 验证码
-        1. 本质 : 图片
-        2. 防止重复注册,导致数据库崩溃
-        3. 动态生成(如果是有限的图片,可以通过穷举的方法全部读取)</code></pre><h2 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h2><pre><code>1. 概念 : 代表整个web应用,可以和程序的容器(服务器)来通信
-2. 获取
-    1. 通过request对象来获取
-            * request.getServletContext
-    2. 通过HttpServlet获取
-            * this.getServletContext
-3. 功能 : 
-    1. 获取MIME类型 :
-        * MIME类型:在互联网通信过程中定义的一种文件数据类型
-            * 格式 : 大类型/小类型 text/html   image/jpeg
-        * 获取 : String getMineType(String file)
-    2. 域对象 : 共享数据
-        1. setAttribute(String name ,Object value)
-        2. getAttribute(String name)
-        3. removeAttribute(String name)
-
-        * ServletContext 对象范围 : 所有用户所有请求的数据
-    3. 获取文件的真实路径(服务器路径) :  
-        1. 方法 : String getRealPath(String path)
-
-          //获取配置文件的真实路径
-            String realPath1 = context.getRealPath(&quot;/WEB-INF/a.txt&quot;);//WEB-INF目录下的配置文件
-            String realPath2 = context.getRealPath(&quot;/WEB-INF/classes/b.txt&quot;);//src目录下的配置文件
-            String realPath = context.getRealPath(&quot;/c.txt&quot;);//web目录下的配置文件</code></pre><h2 id="案例"><a href="#案例" class="headerlink" title="案例 :"></a>案例 :</h2><pre><code>*文件下载需求 :
-    1. 页面显示超链接
-    2. 点击超链接后弹出下载提示框
-    3. 完成图片文件下载
-
-
-* 分析 :
-    1. 超链接指向的资源如果能被解析,则不能实现需求
-    2. 任何资源都必须弹出下载提示框
-    3. 使用响应头设置资源的打开方式:
-        *content-disposition : attachment ; filename=xxx*
-
-* 步骤 :
-    1. 定义页面编辑超链接属性,指向Servlet
-    2. 定义Servlet
-        1.  获取文件名称
-        2.  使用字节输入流加载文件进内存
-        3.  指定response的响应头 : content-disposition : attachment ; filename=xxx
-        4.  将数据写出到response输出流
-
-* 问题
-    1. 中文文件问题
-        *解决思路
-            1. 获取客户端使用的浏览器版本信息
-            2. 根据不同的版本信息,设置filename的编码方式不同</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-EL&amp;JSTL" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/EL&JSTL/" class="article-date">
-      <time datetime="2020-02-14T12:10:17.936Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/EL&JSTL/">EL&amp;JSTL</a>
-    </h1>
-  
-
-
-      </header>
-      
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2020/02/14/Response/" title="下一篇: Response">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/Servlet&HTTP&Request/">Servlet&HTTP&Request</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/Response/">Response</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/EL&JSTL/">EL&JSTL</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/Cookie&Session/">Cookie&Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/UserTable/">UserTable</a></li></ul>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h1><pre><code>1. JSP
-    1. 指令
-    2. 注释
-    3. 内置对象
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
-2. MVC开发模式
-3. EL表达式
-4. JSTL标签
-5. 三层架构</code></pre><h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP:"></a>JSP:</h2><pre><code>1. 指令
-    * 作用 : 用于配置jsp页面,导入资源文件
-    * 格式 :
-        &lt;%@ 指令名称 属性名1=属性值1 属性名2= 属性值2 ... %&gt;
-    * 分类 : 
-        1. page      : 配置jsp页面用的
-            * contentType  : 等同于response. setContentType()
-                1. 设置响应体的mime类型以及字符集
-                2. 设置当前jsp页面的编码(只能是高级的IDE才能生效)
-            * import  : 导包
-            * errorPage : 当前页面发生异常后,会自动跳转到指定的错误页面
-            * isErrorPage : 标识当前也是是否为错误页面
-                * true : 是, 可以使用exception 对象
-                * false : 否 , 默认值,不可以使用内置对象
-        2. include : 页面包含的,导入页面的资源文件
-        3. taglib : 导入资源
-            * prefix 自定义的 
-2. 注释
-    1.  html注释
-    2.  jsp注释
-        &lt;%-- --%&gt;  : 可以注释所有
-3. 内置对象</code></pre><h2 id="MVC-开发模式"><a href="#MVC-开发模式" class="headerlink" title="MVC : 开发模式"></a>MVC : 开发模式</h2><pre><code>1. jsp演变历史
-    1. 早期只有servlet,只能使用response输出标签数据,非常麻烦
-    2. 后来有了jsp,简化了Servlet的开发,如果过度使用jsp,在jsp中即写大量的java代码,又写HTML标签,难以维护,难于分工
-    3. 再后来,javaweb开发,借鉴mvc开发模式,是的程序的设计更加合理性
-
-2. MVC :
-    1.  M : model,模型   **JavaBean**
-        * 完成具体的业务操作,封装对象
-    2.  V : view ,视图        **JSP**
-        * 展示数据
-    3.  C : controller, 控制器     **Servlet**
-        * 获取用户的输入
-        * 调用数据
-        * 将数据交给视图进行展示
-
-
-    * 优点 
-        1. 耦合性低,方便分工合作,方便维护
-        2. 重用性高
-
-    * 缺点
-        1. 使得项目架构变得复杂,对开发人员要求更高</code></pre><h2 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h2><pre><code>1. 概念 : EXpression Language 表达式语言
-2.  作用 : 替换和简化jsp页面中java代码的编写
-3.  语法 : ${表达式}
-4.  注意 : 
-    * jsp是默认支持EL表达式的. 如果要忽略EL表达式
-        1. 是指jsp中page指令中: isELIgnored = &quot;true&quot; 忽略当前页面中的所有EL表达式
-        2. \ 转义
-
-5. 使用 :
-    1. 运算 :
-        1. 算数运算符  除法/(div) 取模%(mod)
-        2. 比较运算符
-        3. 逻辑运算符
-        4. 空运算符 : empty :  
-             * 用于判断字符串,集合数组对象是否为null并且长度是否为0
-             * ${empty list}  :判断字符串,数组,集合对象是否为null或者长度为0
-             * ${not empty str } : 表示判断字符串,集合,数组对象是否为null并且长度大于0
-
-    2. 获取值 
-        1.  EL表达式只能从域对象中获取值
-        2. 语法 :
-            1. ${域名称.键名} :从指定域中获取指定值
-                * 域名称
-                    1. pageScope   --&gt;pageContext
-                    2. requestScope --&gt;request
-                    3. sessionScope --&gt; session
-                    4. applicationScope --&gt;application(ServletContext)
-
-                * 举例 :在request域中存储了name=张三
-                * 获取 : ${requestScope.name}
-                * ${键名} : 表示依次从最小的域中查找是否又该键对应的值,知道找到为止.
-
-        3. 获取对象 , list 集合 , Map集合
-            1. 对象 : ${域名称.键名称.属性名}
-                本质上回去调用对象的getter方法
-            2. List集合 :${域名称.键名[索引]}
-            3. Map集合 :${域名称.键名.key名称}
-
-    3. 隐式对象 :</code></pre><h2 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h2><pre><code>1. 概念 : JavaServer Pages Tag Library JSP标准标签库
-    * 是由Apache组织提供的
-
-2. 作用 : 用于简化和替换jsp页面上的java代码
-
-
-3. 使用步骤 :
-    1. 导入jar包
-    2. 引入标签库 :taglib指令  : &lt;%@ taglib %&gt;
-    3. 使用标签
-
-4. 常用的JSTL标签
-    1.  if        :相当于java代码的if语句
-            if标签体内必须加test
-                作用 : 接收boolean表达式
-
-                用法 : 一般情况下test结合EL一起使用
-
-                注意 : 这个if标签没又else情况,如果想要的话再后面再写一个if即可
-    2.   choose    :相当于switch
-            *完成数值编号对应星期几案例
-                     1. choose --&gt; switch
-                     2. when --&gt; case
-                     3. otherwise --&gt; default
-    3.   foreach   :相当于for
-            * for循环的用途
-                    1. 执行重复的操作
-                        for(int i = 0;i&lt;10; i++){
-
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
                         }
-                        标签 : begin end var step varStatus
-                                开始  结束 变量  步长   循环状体的对象
-                    2. 遍历容器
-                        List&lt;User&gt; list
-                        for(User user : list){
-
-                        }
-                        标签:
-                            items : 容器对象
-                            var : 容器的临时变量
-                            varStatus : 循环状态的对象
-                                index : 对应索引
-                                count : 循环次数
-5. 练习 :
-    * 需求 :再request域中有一个存在User对象的List集合.需要使用jstl+el将list集合展示到jsp页面的table表格中
-        &lt;%
-            List list = new ArrayList();
-            list.add(new User(&quot;张三&quot;,new Date(),10));
-            list.add(new User(&quot;李四&quot;,new Date(),10));
-            list.add(new User(&quot;王五&quot;,new Date(),10));
-            list.add(new User(&quot;赵六&quot;,new Date(),10));
-
-            request.setAttribute(&quot;list&quot;,list);
-        %&gt;
-        &lt;table border=&quot;1&quot; width=&quot;500&quot;&gt;
-            &lt;th&gt;编号&lt;/th&gt;
-            &lt;th&gt;姓名&lt;/th&gt;
-            &lt;th&gt;生日&lt;/th&gt;
-            &lt;th&gt;年龄&lt;/th&gt;
-
-        &lt;c:forEach items=&quot;${list}&quot; var=&quot;user&quot; varStatus=&quot;s&quot;&gt;
-            &lt;tr&gt;
-                &lt;td&gt;${s.count}&lt;/td&gt;
-                &lt;td&gt;${user.name}&lt;/td&gt;
-                &lt;td&gt;${user.date}&lt;/td&gt;
-                &lt;td&gt;${user.age}&lt;/td&gt;
-            &lt;/tr&gt;
-        &lt;/c:forEach&gt;
-        &lt;/table&gt;</code></pre><h2 id="三层架构-软件设计架构"><a href="#三层架构-软件设计架构" class="headerlink" title="三层架构  : 软件设计架构"></a>三层架构  : 软件设计架构</h2><pre><code>1. 界面层(表示层)  : 用户看的到的界面.用户可以通过界面上的组件和服务器交互
-2. 业务逻辑层 :处理业务逻辑的
-3. 数据访问层 : 操作数据存储文件的
-
-![](https://i.imgur.com/RtG3Js9.png)</code></pre><h2 id="案例-用户信息列表展示"><a href="#案例-用户信息列表展示" class="headerlink" title="案例 : 用户信息列表展示"></a>案例 : 用户信息列表展示</h2><pre><code>1. 需求 : 用户信息的增删改查
-2. 设计 :
-    1. 技术选型 : Servlet + JSP + Mysql + JDBCTemplate +Duird +BeanUtils +Tomcat
-    2. 数据库设计 : 
-        create database day31 ;  --创建数据库
-        use day31;                --使用数据库
-        create table user(        --创建表
-            id int primary key auto_increment,
-            name varchar(32) not null,
-            gender varchar(5),
-            age int ,
-            address varchar(32),
-            qq varchar(32),
-            email varchar(32)
-        );
-    3. 开发 :
-        1. 环境搭建(由架构师来完成)
-            1. 创建数据库环境
-            2. 创建项目,导入需要的jar包
-
-        2. 编码
-
-    4. 测试
-    5. 部分运维</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
 
 
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-Cookie&amp;Session" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/Cookie&Session/" class="article-date">
-      <time datetime="2020-02-14T12:10:17.934Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+    <script>
         
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/Cookie&Session/">Cookie&amp;Session</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h1><pre><code>1. 会话技术
-    1. Cookie
-    2. Session
-2. JSP : 入门学习</code></pre><h2 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h2><pre><code>1.  会话 : 一次会话中包含多次请求和响应.
-    * 一次会话 : 浏览器第一次给服务器资源发送请求,会话建立,直到有一方断开为止
-2. 功能 : 在一次会话的范围内的多次请求之间,共享数据
-3. 方式 : 
-    1. 客户端会话技术 : Cookie
-    2. 服务器端会话技术 : Session</code></pre><h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><pre><code>1. 概念 : 客户端会话技术 ,将数据保存到客户端
-2. 快速入门
-    * 使用步骤
-        1.  创建Cookie对象,绑定数据
-            * new Cookie(String name , String value )
-        2.  发送Cookie对象
-            * response .addCookie(Cookie cookie)
-        3.  获取Cookie,拿到数据
-            * Cookie[] request.getCookie
-3. 实现原理:
-    * 基于响应头set-cookie和请求头Cookie实现 
-
-4. Cookie的细节
-    1.  一次可不可发送多个cookie?
-        * 可以
-        * 可以创建多个Cookie对象,使用response调用多次addCookie方法发送cookie即可
-    2.  cookie在浏览器中保存多长时间?
-        * 默认情况下,当浏览器关闭后,Cookie数据被销毁
-        * 设置Cookie的生命周期 持久化存储 : setMaxAge(int seconds) :
-                                                1. 正数 : 将Cookie数据写到硬盘中,cookie存活时间 
-                                                2. 负数 : 默认值
-                                                3. 零 : 删除cookie信息
-    3.  cookie能不能存中文?
-        * 在tomcat8之前是不能存中文数据的
-            * 需要将中文数据转码--一般采用URL编码(%E3)
-        * 在tomcat8之后是可以存储中文数据的(特殊字符还是不支持,建议使用URL编码)
-    4.  cookie获取范围有多大?
-        1. 假设在一个tomcat服务器中,部署了多个web项目,那么在这些web项目中Cookie能不能共享?
-            * 默认情况下cookie不能共享
-
-            * setPath(String path) : 设置cookie的获取范围.默认情况下,设置当前的虚拟目录
-                * 如果要共享,则可以将path设置为&quot;/&quot;
-
-        2. 不同的tomcat可以共享cookie吗?
-            * setDomain(String path): 如果设置一级域名相同,那么多个服务器之间cookie可以共享
-                * setDomain(&quot;.baidu.com&quot;), 那么tieba.baidu.com 和 news.baidu.com中的cookie可以共享
-
-    5. Cookie的特点
-        1. cookie存储数据在客户端浏览器
-        2. 浏览器对于单个cookie的大小有限制(4kb) 以及对同一域名下的总cookie数量也有限制(20个)
-
-        * 作用 :
-            1. cookie一般用于存储少量的不敏感的数据
-            2. 在不登录的情况下,完成服务器对客户端的身份识别
-
-    6. 案例 : 
-        1. 案例需求：
-            1. 访问一个Servlet，如果是第一次访问，则提示：您好，欢迎您首次访问。
-            2. 如果不是第一次访问，则提示：欢迎回来，您上次访问时间为:显示时间字符串
-        2. 分析: 
-            1. 可以采用Cookie来完成
-            2. 在服务器中的Servlet判断是否有一个名为lastTime的Cookie
-                1. 有 : 则不是第一次访问
-                     1. 响应数据 : 欢迎回来,您上次访问时间为: 2020年2月12日
-                    2. 写回Cookie : LastTime=2020年2月12日12.24
-                2. 没有 : 是第一次访问
-                    1. 响应数据 : 您好,欢迎首次访问
-                    2. 写回Cookie : LastTime=2020年2月12日12.24</code></pre><h2 id="JSP-入门学习"><a href="#JSP-入门学习" class="headerlink" title="JSP 入门学习"></a>JSP 入门学习</h2><pre><code>1. 概念 : 
-    * Java Server Pages : java 服务器端页面
-        * 可以理解为 : 一个特殊的页面 
-        * 用于简化书写!!!
-
-2. 原理
-    * JSP本质上就是一个Servlet
-
-2. JSP脚本 : JSP定义了Java代码的方式
-    1.  &lt;% 代码 %&gt; : 定义Java代码,在service方法中,service发给发可以定义什么,就脚本中就可以定义
-    2.  &lt;%! 代码 %&gt; : 定义的java代码,在jsp转换后的java类成员位置
-    3.  &lt;%= 代码 %&gt; : 定义的java代码,会输出到页面上.输出语句可以定义什么,则可以输出什么
-
-4. JSP的内置对象
-    * 在jsp页面中不许哟啊获取和创建,可以直接使用的对象
-    * jsp一共有9个内置对象
-        * request
-        * response
-        * out : 字符输出流对象.可以将数据输出到页面上.和response.getWriter()类似
-            * response.getWriter()和out.write()的区别
-                * 在tomcat服务器真正给客户端做出响应之前,会先找response缓冲区数据,在去找out缓冲区数据</code></pre><h2 id="Session"><a href="#Session" class="headerlink" title="Session :"></a>Session :</h2><pre><code>1. 概念 : 服务器端会话技术,在一次或者多次请求间共享数据,将数据保存在服务器端的对象中,HttpSession
-2. 快速入门
-    1.  获取Session对象
-        * HttpSession session request.getSession();
-    2.  使用HttpSession对象(同一个Session) :
-         * Object getAttribute(String name)
-         * void setAttribute(String name , object value )
-         * void removeAttribute(String name) 
-
-    3. 原理
-        * Session的实现是依赖Cookie的
-
-    4. 细节 :
-        1.  当客户端关闭后,服务器不关闭,两次获取session是否为同一个?
-            *  默认情况下,不是
-            *  @7fc6e954 @28ffc216
-            *  如果想这样的话可以创建一个cookie对象然后设置JSESSIONID 并设置失效时间就可以访问同一个session了
-            *  @253218d5 @253218d5
-            *  //期望客户端关闭后,Session也能相同
-                Cookie c = new Cookie(&quot;JSESSIONID&quot;, session.getId());
-                c.setMaxAge(60);
-                response.addCookie(c);
-        2.  客户端不关闭,服务器关闭后,两次获取的session是同一个吗?
-            * 不是同一个,但是要确保数据不丢失(Tomcat会有个work目录里面记录了创建的对象如果将服务端关闭,里面的内容依然保存,再次启动则读取原先的对象)
-                * session的钝化 :
-                    * 在服务器正常关闭之前,将session对象序列化到硬盘上
-                * session的活化 :
-                    * 在服务器启动后,将session文件转化为内存中的session对象即可.(反序列化)
-        3.  session的失效时间?
-            1.   服务器关闭
-            2.   session调用方法 invalidate()
-            3.   session默认的失效时间 30分钟
-                选择性的配置修改
-                &lt;session-confing&gt;
-
-    5. session的特点
-        1.  session用于存储一次会话的多次请求的数据,存在服务器端
-        2.  session可以存储任意类型,任意大小的数据
-
-        * session与cookie的区别
-            1. session存储数据在服务端,Cookie在客户端
-            2. session没有数据大小限制,Cookie有
-            3. session数据安全,Cookie相对不安全</code></pre><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><pre><code>案例需求：
-1. 访问带有验证码的登录页面login.jsp
-2. 用户输入用户名，密码以及验证码。
-    * 如果用户名和密码输入有误，跳转登录页面，提示:用户名或密码错误
-    * 如果验证码输入有误，跳转登录页面，提示：验证码错误
-    * 如果全部输入正确，则跳转到主页success.jsp，显示：用户名,欢迎您</code></pre><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><pre><code>1.导包问题 :在WEB-INF包下的libs目录下导入的common-BeanUtils 的j包 导入不了</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-UserTable" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/UserTable/" class="article-date">
-      <time datetime="2020-02-14T12:09:50.245Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/UserTable/">UserTable</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="案例练习"><a href="#案例练习" class="headerlink" title="案例练习"></a>案例练习</h2><pre><code>1. 综合练习
-    1. 简单功能
-        1. 列表查询
-        2. 登录
-        3. 添加
-        4. 删除
-        5. 修改
-    2. 复杂功能
-        1. 删除选中
-        2. 分页查询
-        3. 复杂条件查询</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-  
+    </script>
 
 </div>
       <footer id="footer">
